@@ -1,0 +1,39 @@
+{
+  "name": "n8-server",
+  "version": "1.0.0",
+  "description": "JSON endpoint server, inspired by `micro`",
+  "main": "./build/server.js",
+  "bin": {
+    "n8-server": "./build/server.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/TooTallNate/n8-server.git"
+  },
+  "keywords": [
+    "n8",
+    "nate",
+    "n8.io",
+    "server",
+    "json",
+    "endpoint",
+    "api",
+    "server",
+    "micro"
+  ],
+  "author": "Nathan Rajlich <n@n8.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TooTallNate/n8-server/issues"
+  },
+  "homepage": "https://github.com/TooTallNate/n8-server#readme",
+  "dependencies": {
+    "is-stream": "^1.1.0",
+    "minimist": "^1.2.0",
+    "source-map-support": "^0.4.0"
+  }
+}
