@@ -2,13 +2,10 @@
   "name": "n8-server",
   "version": "1.0.0",
   "description": "JSON endpoint server, inspired by `micro`",
-  "main": "./run.js",
-  "bin": {
-    "n8-server": "./run.js"
-  },
+  "main": "./build/server.js",
+  "bin": "./run.sh",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -32,6 +29,7 @@
   },
   "homepage": "https://github.com/TooTallNate/n8-server#readme",
   "dependencies": {
+    "babel-runtime": "^6.9.2",
     "is-stream": "^1.1.0",
     "minimist": "^1.2.0",
     "source-map-support": "^0.4.0"
