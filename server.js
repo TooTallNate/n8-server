@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import minimist from 'minimist';
 import { writeFileSync as write, unlinkSync as unlink } from 'fs';
 import { createServer } from 'http';
