@@ -11,8 +11,9 @@ if [ "x$NODE" = "x" ]; then
   NODE=node
 fi
 
-# thanks http://stackoverflow.com/a/8506790/376773 !
-DIR=$( cd $( dirname -- "$0" ) > /dev/null ; pwd )
+FILENAME=`which $0`
+FILENAME=`"$NODE" -pe "require('fs').realpathSync('$FILENAME')"`
+DIR=`dirname "$FILENAME"`
 
 # TODO: use a module to find the root of the module
 # (node-bindings has this logic, but it's not exposed)
