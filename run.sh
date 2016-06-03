@@ -21,6 +21,6 @@ done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 # TODO: use a module to find the root of the module (node-bindings has this logic, but not exposed)
-export NODE_PATH="$PWD/node_modules:$NODE_PATH"
+export NODE_PATH="$PWD/node_modules:$DIR/node_modules:$NODE_PATH"
 
 "$NODE" "$DIR/build/server.js" "$@"
