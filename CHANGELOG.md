@@ -1,3 +1,7 @@
+v1.1.0 2016-06-03
+
+* [[`72c4655232`](https://github.com/TooTallNate/n8-server/commit/72c4655232)] - **server**: add `--portfile path/to/portfile` CLI argument (Nathan Rajlich)
+
 v1.0.3 2016-06-03
 
 * [[`7b9ef21ab7`](https://github.com/TooTallNate/n8-server/commit/7b9ef21ab7)] - **run**: another attempt at getting dirname of script (Nathan Rajlich)
