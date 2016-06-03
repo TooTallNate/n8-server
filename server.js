@@ -6,6 +6,7 @@ import { readable as isReadableStream } from 'is-stream';
 
 const argv = minimist(process.argv.slice(2));
 
+let portfile;
 let filename = argv._.shift();
 let port = argv.port || parseInt(process.env.PORT, 10) || 0;
 
@@ -90,7 +91,8 @@ server.listen(port, (err) => {
   console.log('listening on port %d', port);
 
   var name = process.env.MONGROUP_NAME;
-  write('ports/' + name, String(port), 'ascii');
+  portfile = 'ports/' + name;
+  write(portfile, String(port), 'ascii');
 });
 
 // simply log unhandled rejections, like Chrome does
@@ -106,7 +108,7 @@ process.on('SIGQUIT', () => server.close());
 process.on('exit', () => {
   try {
     var name = process.env.MONGROUP_NAME;
-    unlink('ports/' + name);
+    unlink(portfile);
   } catch (e) {
     console.error(e.stack);
   }
