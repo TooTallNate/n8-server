@@ -26,4 +26,4 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 # from the root of the module)
 export NODE_PATH="$PWD/node_modules:$DIR/node_modules:$NODE_PATH"
 
-"$NODE" "$DIR/build/server.js" "$@"
+"$NODE" -r source-map-support/register "$DIR/build/server.js" "$@"
