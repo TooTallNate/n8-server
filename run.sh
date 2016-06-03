@@ -5,7 +5,7 @@
 #
 # it also exports NODE_PATH such that the `node_modules` directory
 # relative to the current working directory will be included in
-# the search path
+# the search path, as well as n8-server's `node_modules` directory
 
 if [ "x$NODE" = "x" ]; then
   NODE=node
@@ -20,8 +20,10 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
-# TODO: use a module to find the root of the module (node-bindings has this logic, but it's not exposed)
-# (the current logic assumes that `n8-server` is invoked from the root of the module
+# TODO: use a module to find the root of the module
+# (node-bindings has this logic, but it's not exposed)
+# (the current logic assumes that `n8-server` is invoked
+# from the root of the module)
 export NODE_PATH="$PWD/node_modules:$DIR/node_modules:$NODE_PATH"
 
 "$NODE" "$DIR/build/server.js" "$@"
