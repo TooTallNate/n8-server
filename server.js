@@ -24,6 +24,7 @@ if (!isAbsolute(filename)) {
 }
 
 const statusCodes = {
+  EACCES: 403,
   ENOENT: 404,
   ENOTFOUND: 404
 };
