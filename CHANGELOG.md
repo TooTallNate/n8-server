@@ -1,3 +1,7 @@
+v1.0.1 2016-06-03
+
+* [[`492140e3db`](https://github.com/TooTallNate/n8-server/commit/492140e3db)] - attempt to publish the `build` dir (Nathan Rajlich)
+
 v1.0.0 2016-06-03
 
 * [[`c960bcf36c`](https://github.com/TooTallNate/n8-server/commit/c960bcf36c)] - **package**: run `n8-make build` upon "prepublish" (Nathan Rajlich)
