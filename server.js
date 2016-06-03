@@ -100,9 +100,8 @@ process.on('unhandledRejection', (err, promise) => {
 });
 
 // delete the "ports" file
-process.on('SIGQUIT', () => {
-  server.close();
-});
+process.on('SIGINT', () => server.close());
+process.on('SIGQUIT', () => server.close());
 
 process.on('exit', () => {
   try {
