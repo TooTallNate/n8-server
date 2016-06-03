@@ -5,7 +5,8 @@
   "main": "./build/server.js",
   "bin": "./run.sh",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "n8-make build"
   },
   "repository": {
     "type": "git",
@@ -33,5 +34,8 @@
     "is-stream": "^1.1.0",
     "minimist": "^1.2.0",
     "source-map-support": "^0.4.0"
+  },
+  "devDependencies": {
+    "n8-make": "^1.0.0"
   }
 }
