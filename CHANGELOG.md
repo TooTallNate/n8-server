@@ -1,3 +1,7 @@
+v1.0.3 2016-06-03
+
+* [[`7b9ef21ab7`](https://github.com/TooTallNate/n8-server/commit/7b9ef21ab7)] - **run**: another attempt at getting dirname of script (Nathan Rajlich)
+
 v1.0.2 2016-06-03
 
 * [[`b93ad0693c`](https://github.com/TooTallNate/n8-server/commit/b93ad0693c)] - **run**: simpler and more portable DIR logic (Nathan Rajlich)
