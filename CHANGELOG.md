@@ -1,3 +1,8 @@
+v1.0.2 2016-06-03
+
+* [[`b93ad0693c`](https://github.com/TooTallNate/n8-server/commit/b93ad0693c)] - **run**: simpler and more portable DIR logic (Nathan Rajlich)
+* [[`f0e44f6b7d`](https://github.com/TooTallNate/n8-server/commit/f0e44f6b7d)] - **npmignore**: ignore `node_modules` (Nathan Rajlich)
+
 v1.0.1 2016-06-03
 
 * [[`492140e3db`](https://github.com/TooTallNate/n8-server/commit/492140e3db)] - attempt to publish the `build` dir (Nathan Rajlich)

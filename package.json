@@ -1,6 +1,6 @@
 {
   "name": "n8-server",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "JSON endpoint server, inspired by `micro`",
   "main": "./build/server.js",
   "bin": "./run.sh",
