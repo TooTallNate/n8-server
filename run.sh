@@ -21,4 +21,4 @@ DIR=`dirname "$FILENAME"`
 # from the root of the module)
 export NODE_PATH="$PWD/node_modules:$DIR/node_modules:$NODE_PATH"
 
-"$NODE" -r source-map-support/register "$DIR/build/server.js" "$@"
+"$NODE" --require source-map-support/register "$DIR/build/server.js" "$@"
