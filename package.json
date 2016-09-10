@@ -33,6 +33,7 @@
     "babel-runtime": "^6.9.2",
     "is-stream": "^1.1.0",
     "minimist": "^1.2.0",
+    "module-root": "^0.2.0",
     "source-map-support": "^0.4.0"
   },
   "devDependencies": {

@@ -15,10 +15,7 @@ FILENAME=`which $0`
 FILENAME=`"$NODE" -pe "require('fs').realpathSync('$FILENAME')"`
 DIR=`dirname "$FILENAME"`
 
-# TODO: use a module to find the root of the module
-# (node-bindings has this logic, but it's not exposed)
-# (the current logic assumes that `n8-server` is invoked
-# from the root of the module)
-export NODE_PATH="$PWD/node_modules:$DIR/node_modules:$NODE_PATH"
+export NODE_PATH="$DIR/node_modules:$NODE_PATH"
+export NODE_PATH="`"$NODE" -pe "require('module-root')()"`/node_modules:$NODE_PATH"
 
 "$NODE" --require source-map-support/register "$DIR/build/server.js" "$@"
