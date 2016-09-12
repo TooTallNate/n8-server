@@ -1,3 +1,10 @@
+v1.2.0 2016-09-12
+
+* [[`ee4f76f078`](https://github.com/TooTallNate/n8-server/commit/ee4f76f078)] - add HTTP Error server `n8-server error --port 8080` (Nathan Rajlich)
+* [[`f1469704bf`](https://github.com/TooTallNate/n8-server/commit/f1469704bf)] - add `HTTPError` and helper classes (Nathan Rajlich)
+* [[`e914f0b939`](https://github.com/TooTallNate/n8-server/commit/e914f0b939)] - properly resolve the module root (Nathan Rajlich)
+* [[`b2487c7ffc`](https://github.com/TooTallNate/n8-server/commit/b2487c7ffc)] - **run**: use the full `--require` flag on node (Nathan Rajlich)
+
 v1.1.0 2016-06-03
 
 * [[`72c4655232`](https://github.com/TooTallNate/n8-server/commit/72c4655232)] - **server**: add `--portfile path/to/portfile` CLI argument (Nathan Rajlich)
