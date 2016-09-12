@@ -18,7 +18,9 @@ if (Number.isNaN(port)) {
   throw new Error('PORT env variable must be set!');
 }
 
-if (!isAbsolute(filename)) {
+if ('error' === filename) {
+  filename = './error.js';
+} else if (!isAbsolute(filename)) {
   filename = resolve(filename);
 }
 
