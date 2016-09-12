@@ -2,7 +2,6 @@ import { parse } from 'url';
 import HTTPError from './lib/http-error';
 
 export default async function endpoint (req, res) {
-  console.log(req.headers);
   const code = +req.headers['x-status-code'] || 500;
   const err = new HTTPError(code);
   if (err.statusCode === 404) {
