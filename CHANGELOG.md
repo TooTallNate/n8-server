@@ -1,3 +1,7 @@
+v1.4.0 2016-09-24
+
+* [[`08867f3c32`](https://github.com/TooTallNate/n8-server/commit/08867f3c32)] - **server**: emit "gracefulShutdown" on process (Nathan Rajlich) 
+
 v1.3.0 2016-09-23
 
 * [[`086c44518a`](https://github.com/TooTallNate/n8-server/commit/086c44518a)] - **server**: add support for `headers` object on Errors (Nathan Rajlich)
