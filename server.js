@@ -79,6 +79,12 @@ const server = createServer((req, res) => {
 
     res.statusCode = code;
 
+    if (err.headers) {
+      Object.keys(err.headers).forEach((name) => {
+        res.setHeader(name, err.headers[name]);
+      });
+    }
+
     // Error will be JSON stringified in response
     onResponse(makeEnumerableError(err));
   }
