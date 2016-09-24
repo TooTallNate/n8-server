@@ -92,6 +92,8 @@ const server = createServer((req, res) => {
   mod(req, res).then(onResponse, onError);
 });
 
+process.once('gracefulShutdown', () => server.close());
+
 server.listen(port, (err) => {
   if (err) throw err;
   port = server.address().port;
@@ -103,17 +105,24 @@ server.listen(port, (err) => {
   }
 });
 
+let shuttingDown = false;
+function gracefulShutdown () {
+  if (shuttingDown) return;
+  shuttingDown = true;
+  process.emit('gracefulShutdown');
+}
+
 // simply log unhandled rejections, like Chrome does
 process.on('unhandledRejection', (err, promise) => {
   console.error('Unhandled promise rejection:\n' + err.stack);
-  server.close();
+  gracefulShutdown();
 });
 
 // delete the "ports" file
-process.on('SIGINT', () => server.close());
-process.on('SIGQUIT', () => server.close());
+process.on('SIGINT', gracefulShutdown);
+process.on('SIGQUIT', gracefulShutdown);
 
-process.on('exit', () => {
+process.on('beforeExit', () => {
   if (portfile) {
     try {
       unlink(portfile);
