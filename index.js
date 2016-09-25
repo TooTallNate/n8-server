@@ -4,7 +4,8 @@ import HTTPError, {
   BadRequestError,
   UnauthorizedError,
   ForbiddenError,
-  NotFoundError
+  NotFoundError,
+  GoneError
 } from './lib/http-error';
 
 export {
@@ -13,5 +14,6 @@ export {
   BadRequestError,
   UnauthorizedError,
   ForbiddenError,
-  NotFoundError
+  NotFoundError,
+  GoneError
 };
