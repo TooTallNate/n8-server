@@ -1,6 +1,10 @@
+v1.5.0 2016-09-25
+
+* [[`37e5811a63`](https://github.com/TooTallNate/n8-server/commit/37e5811a63)] - add `GoneError` for 410 status code (Nathan Rajlich)
+
 v1.4.0 2016-09-24
 
-* [[`08867f3c32`](https://github.com/TooTallNate/n8-server/commit/08867f3c32)] - **server**: emit "gracefulShutdown" on process (Nathan Rajlich) 
+* [[`08867f3c32`](https://github.com/TooTallNate/n8-server/commit/08867f3c32)] - **server**: emit "gracefulShutdown" on process (Nathan Rajlich)
 
 v1.3.0 2016-09-23
 
