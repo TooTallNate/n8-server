@@ -94,6 +94,10 @@ const server = createServer((req, res) => {
 
 process.once('gracefulShutdown', () => server.close());
 
+// hook for any last-minute listeners on `server`.
+// for example, this would be a good place to set up `socket.io`
+process.emit('server', server);
+
 server.listen(port, (err) => {
   if (err) throw err;
   port = server.address().port;
