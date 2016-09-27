@@ -32,7 +32,7 @@ let mod = require(filename);
 if (mod.default) mod = mod.default;
 
 if ('function' !== typeof mod) {
-  throw new TypeError(`A function must be exported. Got "${ typeof mod }"`);
+  throw new TypeError(`A function must be exported. Got "${typeof mod}"`);
 }
 
 export function makeEnumerableError (err) {
@@ -87,7 +87,8 @@ const server = createServer((req, res) => {
     onResponse(makeEnumerableError(err));
   }
 
-  mod(req, res).then(onResponse, onError);
+  const rtn = mod(req, res);
+  Promise.resolve(rtn).then(onResponse, onError);
 });
 
 process.once('gracefulShutdown', () => server.close());
