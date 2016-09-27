@@ -17,7 +17,7 @@ if (!filename) {
 }
 
 if (Number.isNaN(port)) {
-  throw new Error('PORT env variable must be set!');
+  throw new Error('`--port` parameter or `PORT` environment variable must be set!');
 }
 
 if ('error' === filename) {
