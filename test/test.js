@@ -47,3 +47,17 @@ test('function returning Promise', async (t) => {
 
   proc.kill();
 });
+
+test('function returning an Object', async (t) => {
+  const [ proc, port ] = await server(__dirname + '/servers/json.js');
+  const req = fetch(`http://localhost:${port}/`);
+
+  const res = await req;
+  t.is(res.ok, true);
+  t.is(res.headers.get('Content-Type'), 'application/json; charset=utf8');
+
+  const body = await res.json();
+  t.deepEqual(body, { hello: 'world' });
+
+  proc.kill();
+});
