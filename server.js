@@ -1,9 +1,11 @@
+import DEBUG from 'debug';
 import minimist from 'minimist';
 import { writeFileSync as write, unlinkSync as unlink } from 'fs';
 import { createServer } from 'http';
 import { isAbsolute, resolve } from 'path';
 import { readable as isReadableStream } from 'is-stream';
 
+const debug = DEBUG('n8-server');
 const argv = minimist(process.argv.slice(2));
 
 let filename = argv._.shift();
