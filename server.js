@@ -131,6 +131,7 @@ process.on('unhandledRejection', (err, promise) => {
 
 // delete the "ports" file
 process.on('SIGINT', gracefulShutdown);
+process.on('SIGTERM', gracefulShutdown);
 process.on('SIGQUIT', gracefulShutdown);
 
 process.on('beforeExit', () => {
