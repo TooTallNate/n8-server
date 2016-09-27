@@ -6,7 +6,12 @@ import { isAbsolute, resolve } from 'path';
 import { readable as isReadableStream } from 'is-stream';
 
 const debug = DEBUG('n8-server');
-const argv = minimist(process.argv.slice(2));
+const argv = minimist(process.argv.slice(2), {
+  alias: {
+    p: 'port',
+    P: 'portfile'
+  }
+});
 
 let filename = argv._.shift();
 let port = argv.port || parseInt(process.env.PORT, 10) || 0;
