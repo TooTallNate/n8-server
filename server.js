@@ -107,11 +107,20 @@ server.listen(port, (err) => {
   }
 });
 
+/**
+ * Graceful shutdown.
+ */
+
 let shuttingDown = false;
 function gracefulShutdown () {
-  if (shuttingDown) return;
-  shuttingDown = true;
-  process.emit('gracefulShutdown');
+  if (shuttingDown) {
+    debug('hard quitting');
+    process.exit(1);
+  } else {
+    shuttingDown = true;
+    debug('attempting graceful shutdown');
+    process.emit('gracefulShutdown');
+  }
 }
 
 // simply log unhandled rejections, like Chrome does
