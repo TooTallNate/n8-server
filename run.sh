@@ -18,4 +18,4 @@ DIR=`dirname "$FILENAME"`
 export NODE_PATH="$DIR/node_modules:$NODE_PATH"
 export NODE_PATH="`"$NODE" -pe "require('module-root')()"`/node_modules:$NODE_PATH"
 
-"$NODE" --require source-map-support/register "$DIR/build/server.js" "$@"
+exec "$NODE" --require source-map-support/register "$DIR/build/server.js" "$@"
