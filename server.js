@@ -16,10 +16,6 @@ if (!filename) {
   throw new Error('A server filename must be given!');
 }
 
-if (Number.isNaN(port)) {
-  throw new Error('`--port` parameter or `PORT` environment variable must be set!');
-}
-
 if ('error' === filename) {
   filename = './error.js';
 } else if (!isAbsolute(filename)) {
