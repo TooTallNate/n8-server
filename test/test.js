@@ -61,3 +61,60 @@ test('function returning an Object', async (t) => {
 
   proc.kill();
 });
+
+test('error server: 403', async (t) => {
+  const [ proc, port ] = await server('error');
+  const req = fetch(`http://localhost:${port}/`, {
+    headers: {
+      'X-Status-Code': '403'
+    }
+  });
+
+  const res = await req;
+  t.is(res.ok, false);
+  t.is(res.status, 403);
+  t.is(res.headers.get('Content-Type'), 'application/json; charset=utf8');
+
+  const body = await res.json();
+  t.deepEqual(body, { name: "ForbiddenError", message: "Forbidden", statusCode: 403 });
+
+  proc.kill();
+});
+
+test('error server: 404', async (t) => {
+  const [ proc, port ] = await server('error');
+  const req = fetch(`http://localhost:${port}/the-path`, {
+    headers: {
+      'X-Status-Code': '404'
+    }
+  });
+
+  const res = await req;
+  t.is(res.ok, false);
+  t.is(res.status, 404);
+  t.is(res.headers.get('Content-Type'), 'application/json; charset=utf8');
+
+  const body = await res.json();
+  t.deepEqual(body, { name: "NotFoundError", message: "API endpoint \"GET /the-path\" does not exist", statusCode: 404 });
+
+  proc.kill();
+});
+
+test('error server: 410', async (t) => {
+  const [ proc, port ] = await server('error');
+  const req = fetch(`http://localhost:${port}/`, {
+    headers: {
+      'X-Status-Code': '410'
+    }
+  });
+
+  const res = await req;
+  t.is(res.ok, false);
+  t.is(res.status, 410);
+  t.is(res.headers.get('Content-Type'), 'application/json; charset=utf8');
+
+  const body = await res.json();
+  t.deepEqual(body, { name: "GoneError", message: "Gone", statusCode: 410 });
+
+  proc.kill();
+});
