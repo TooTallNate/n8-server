@@ -1,3 +1,19 @@
+v2.0.0 2016-10-01
+
+* [[`bd51d2a78d`](https://github.com/TooTallNate/n8-server/commit/bd51d2a78d)] - add -p and -P aliases (Nathan Rajlich)
+* [[`91c0d00c40`](https://github.com/TooTallNate/n8-server/commit/91c0d00c40)] - use "args" module (Nathan Rajlich)
+* [[`45c2631bb9`](https://github.com/TooTallNate/n8-server/commit/45c2631bb9)] - use "debug" (Nathan Rajlich)
+* [[`8c394eb4fb`](https://github.com/TooTallNate/n8-server/commit/8c394eb4fb)] - initial ava tests (Nathan Rajlich)
+* [[`86326e4f5b`](https://github.com/TooTallNate/n8-server/commit/86326e4f5b)] - **run**: use `exec` (Nathan Rajlich)
+* [[`f830a6bcea`](https://github.com/TooTallNate/n8-server/commit/f830a6bcea)] - **error**: fix 404 endpoint message (Nathan Rajlich)
+* [[`ce51a8980d`](https://github.com/TooTallNate/n8-server/commit/ce51a8980d)] - **server**: add support for regular functions (Nathan Rajlich)
+* [[`4d6d6ba371`](https://github.com/TooTallNate/n8-server/commit/4d6d6ba371)] - **server**: gracefully shutdown upon SIGTERM (Nathan Rajlich)
+* [[`94fe0e37ff`](https://github.com/TooTallNate/n8-server/commit/94fe0e37ff)] - **server**: add a "hard quit" upon second shutdown signal (Nathan Rajlich)
+* [[`3c81058c86`](https://github.com/TooTallNate/n8-server/commit/3c81058c86)] - **server**: remove error message that never happens (Nathan Rajlich)
+* [[`b59a59d199`](https://github.com/TooTallNate/n8-server/commit/b59a59d199)] - **server**: better error message when no port is specified (Nathan Rajlich)
+* [[`06392f55d5`](https://github.com/TooTallNate/n8-server/commit/06392f55d5)] - **server**: emit "server" event on `process` (Nathan Rajlich)
+* [[`b67a3bf2d4`](https://github.com/TooTallNate/n8-server/commit/b67a3bf2d4)] - random tweaks (Nathan Rajlich)
+
 v1.5.0 2016-09-25
 
 * [[`37e5811a63`](https://github.com/TooTallNate/n8-server/commit/37e5811a63)] - add `GoneError` for 410 status code (Nathan Rajlich)
