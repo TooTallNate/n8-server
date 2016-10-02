@@ -57,7 +57,7 @@ export function makeEnumerableError (err) {
   const copy = {};
   copy.name = err.name;
   copy.message = err.message;
-  Object.keys(err).forEach((k) => copy[k] = err[k]);
+  Object.assign(copy, err);
   if (copy.stack) copy.stack = undefined;
   return copy;
 }
@@ -86,7 +86,7 @@ const server = createServer((req, res) => {
   }
 
   function onError (err) {
-    let code = err.statusCode || statusCodes[err.code] || 500;
+    let code = parseInt(err.statusCode, 10) || statusCodes[err.code] || 500;
 
     if (code < 400 || code >= 500) {
       // print non-4xx stack traces to the server log
