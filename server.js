@@ -1,24 +1,36 @@
+import args from 'args';
 import DEBUG from 'debug';
-import minimist from 'minimist';
 import { writeFileSync as write, unlinkSync as unlink } from 'fs';
 import { createServer } from 'http';
 import { isAbsolute, resolve } from 'path';
 import { readable as isReadableStream } from 'is-stream';
+import { name as packageName } from './package.json';
 
 const debug = DEBUG('n8-server');
-const argv = minimist(process.argv.slice(2), {
-  alias: {
-    p: 'port',
-    P: 'portfile'
-  }
+
+args
+  .option(['p', 'port'], 'The port that the server should bind to (defaults to an ephemeral port)')
+  .option(['P', 'portfile'], 'File where the bound port number will be written to (optional)')
+  .option('help', 'Output usage information');
+
+const argv = args.parse(process.argv, {
+  name: packageName,
+  value: 'server.js',
+  help: false
 });
 
-let filename = argv._.shift();
+debug('argv: %o', argv);
+
+if (argv.help) {
+  args.showHelp();
+}
+
+let filename = args.sub[0];
 let port = argv.port || parseInt(process.env.PORT, 10) || 0;
 let portfile = argv.portfile;
 
 if (!filename) {
-  throw new Error('A server filename must be given!');
+  args.showHelp();
 }
 
 if ('error' === filename) {
@@ -33,6 +45,7 @@ const statusCodes = {
   ENOTFOUND: 404
 };
 
+debug('entry point: %o', filename);
 let mod = require(filename);
 if (mod.default) mod = mod.default;
 
