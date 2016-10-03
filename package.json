@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/TooTallNate/n8-server#readme",
   "dependencies": {
-    "args": "https://github.com/leo/args/archive/f838e168a2be4fb8fe1581f878557377de0466ee.tar.gz",
+    "args": "^2.1.0",
     "babel-runtime": "^6.9.2",
     "debug": "^2.2.0",
     "is-stream": "^1.1.0",
