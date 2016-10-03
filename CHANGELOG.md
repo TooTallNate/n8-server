@@ -1,3 +1,7 @@
+v2.0.1 2016-10-02
+
+* [[`f732ec091c`](https://github.com/TooTallNate/n8-server/commit/f732ec091c)] - **package**: update "args" to v2.1.0 (Nathan Rajlich)
+
 v2.0.0 2016-10-01
 
 * [[`bd51d2a78d`](https://github.com/TooTallNate/n8-server/commit/bd51d2a78d)] - add -p and -P aliases (Nathan Rajlich)
