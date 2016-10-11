@@ -19,19 +19,21 @@ const argv = args.parse(process.argv, {
   // custom `--help` rendering
   usageFilter(output) {
     const pkg = require('./package.json');
-    return output
-      + '\n'
-      + `  Examples:\n`
-      + '\n'
-      + `    $ n8-server server.js --port 8080\n`
-      + '\n'
-      + `  Node.js options may also be applied before the script name:\n`
-      + '\n'
-      + `    $ n8-server -r dotenv/config server.js\n`
-      + `    $ n8-server --expose-gc server.js\n`
-      + '\n'
-      + `  ${pkg.name} version v${pkg.version}\n`
-      + `  ${process.title} version ${process.version} (${process.execPath || process.argv[0]})\n`;
+
+    return output + `
+  Examples:
+
+    $ n8-server server.js --port 8080
+
+  Node.js options may also be applied before the script name:
+
+    $ n8-server -r dotenv/config server.js
+    $ n8-server --expose-gc server.js
+
+  ${pkg.name} version v${pkg.version}
+  ${process.title} version ${process.version} (${process.execPath || process.argv[0]})
+`;
+
   }
 });
 
