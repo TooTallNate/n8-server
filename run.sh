@@ -24,7 +24,7 @@ ARGS=
 while [ "x$1" != "x" ]
   do
   case "$1" in
-    -h|--help|-v|--version)
+    -h|--help|-v|--version|-p|--port|-P|--portfile)
       # special option names that should be handled by `server.js`
       ARGS="$ARGS "$1""
       ;;

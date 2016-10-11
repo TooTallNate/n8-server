@@ -1,3 +1,9 @@
+v2.1.0 2016-10-11
+
+* [[`729612a14d`](https://github.com/TooTallNate/n8-server/commit/729612a14d)] - **server**: use multi-line ES6 string (Nathan Rajlich)
+* [[`67371a96af`](https://github.com/TooTallNate/n8-server/commit/67371a96af)] - **server**: better --help output (Nathan Rajlich)
+* [[`89d0f14ccc`](https://github.com/TooTallNate/n8-server/commit/89d0f14ccc)] - preprocess arguments in order to support node options (Nathan Rajlich)
+
 v2.0.1 2016-10-02
 
 * [[`f732ec091c`](https://github.com/TooTallNate/n8-server/commit/f732ec091c)] - **package**: update "args" to v2.1.0 (Nathan Rajlich)
