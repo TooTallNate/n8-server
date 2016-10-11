@@ -10,20 +10,32 @@ const debug = DEBUG('n8-server');
 
 args
   .option(['p', 'port'], 'The port that the server should bind to (defaults to an ephemeral port)')
-  .option(['P', 'portfile'], 'File where the bound port number will be written to (optional)')
-  .option('help', 'Output usage information');
+  .option(['P', 'portfile'], 'File where the bound port number will be written to (optional)');
 
 const argv = args.parse(process.argv, {
   name: packageName,
   value: 'server.js',
-  help: false
+
+  // custom `--help` rendering
+  usageFilter(output) {
+    const pkg = require('./package.json');
+    return output
+      + '\n'
+      + `  Examples:\n`
+      + '\n'
+      + `    $ n8-server server.js --port 8080\n`
+      + '\n'
+      + `  Node.js options may also be applied before the script name:\n`
+      + '\n'
+      + `    $ n8-server -r dotenv/config server.js\n`
+      + `    $ n8-server --expose-gc server.js\n`
+      + '\n'
+      + `  ${pkg.name} version v${pkg.version}\n`
+      + `  ${process.title} version ${process.version} (${process.execPath || process.argv[0]})\n`;
+  }
 });
 
 debug('argv: %o', argv);
-
-if (argv.help) {
-  args.showHelp();
-}
 
 let filename = args.sub[0];
 let port = argv.port || parseInt(process.env.PORT, 10) || 0;
