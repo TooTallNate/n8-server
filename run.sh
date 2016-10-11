@@ -18,4 +18,43 @@ DIR=`dirname "$FILENAME"`
 export NODE_PATH="$DIR/node_modules:$NODE_PATH"
 export NODE_PATH="`"$NODE" -pe "require('module-root')()"`/node_modules:$NODE_PATH"
 
-exec "$NODE" --require source-map-support/register "$DIR/build/server.js" "$@"
+ENTRY_POINT=
+NODE_ARGS="--require source-map-support/register"
+ARGS=
+while [ "x$1" != "x" ]
+  do
+  case "$1" in
+    -h|--help|-v|--version)
+      # special option names that should be handled by `server.js`
+      ARGS="$ARGS "$1""
+      ;;
+    --expose_gc|--expose-gc)
+      # single argument node options should be handled here (ughhh...)
+      NODE_ARGS="$NODE_ARGS "$1""
+      ;;
+    -*)
+      # any two-argument node options should be caught here
+      NODE_ARGS="$NODE_ARGS "$1" "$2""
+      shift
+      ;;
+    *)
+      # the first thing that doesn't start with a hypen and
+      # hasn't been skipped over is the entry point
+      ENTRY_POINT="$1"
+      shift
+      break
+      ;;
+    esac
+  shift
+done
+
+# anything left is script args
+ARGS="$ARGS "$@""
+
+# debug
+#echo "Entry: $ENTRY_POINT"
+#echo "Node args: $NODE_ARGS"
+#echo "Server args: $ARGS"
+#echo exec "$NODE" "$NODE_ARGS" "$DIR/build/server.js" "$ENTRY_POINT" "$ARGS"
+
+exec "$NODE" $NODE_ARGS "$DIR/build/server.js" "$ENTRY_POINT" $ARGS
