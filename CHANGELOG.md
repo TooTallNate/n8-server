@@ -1,3 +1,7 @@
+v2.1.1 2016-10-12
+
+* [[`90054a6417`](https://github.com/TooTallNate/n8-server/commit/90054a6417)] - **run**: fix `--port` / `--portfile` before the entry file (Nathan Rajlich)
+
 v2.1.0 2016-10-11
 
 * [[`729612a14d`](https://github.com/TooTallNate/n8-server/commit/729612a14d)] - **server**: use multi-line ES6 string (Nathan Rajlich)
