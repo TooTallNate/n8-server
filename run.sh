@@ -24,16 +24,21 @@ ARGS=
 while [ "x$1" != "x" ]
   do
   case "$1" in
-    -h|--help|-v|--version|-p|--port|-P|--portfile)
-      # special option names that should be handled by `server.js`
+    -h|--help|-v|--version)
+      # single argument option names that should be handled by `server.js`
       ARGS="$ARGS "$1""
       ;;
+    -p|--port|-P|--portfile)
+      # two argument option names that should be handled by `server.js`
+      ARGS="$ARGS "$1" "$2""
+      shift
+      ;;
     --expose_gc|--expose-gc)
-      # single argument node options should be handled here (ughhh...)
+      # single argument node options should be handled here
       NODE_ARGS="$NODE_ARGS "$1""
       ;;
     -*)
-      # any two-argument node options should be caught here
+      # two argument node options should be caught here
       NODE_ARGS="$NODE_ARGS "$1" "$2""
       shift
       ;;
