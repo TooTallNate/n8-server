@@ -102,8 +102,8 @@ const server = createServer((req, res) => {
   function onError (err) {
     let code = parseInt(err.statusCode, 10) || statusCodes[err.code] || 500;
 
-    if (code < 400 || code >= 500) {
-      // print non-4xx stack traces to the server log
+    if (code >= 500 && code < 600) {
+      // print 5xx server error stack traces to the server log
       console.error(err.stack);
     }
 
