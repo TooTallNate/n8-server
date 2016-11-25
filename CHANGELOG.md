@@ -1,3 +1,7 @@
+v2.1.2 2016-11-25
+
+* [[`1ccf5bab9a`](https://github.com/TooTallNate/n8-server/commit/1ccf5bab9a)] - pass through all `--harmony` flags to node (Nathan Rajlich)
+
 v2.1.1 2016-10-12
 
 * [[`90054a6417`](https://github.com/TooTallNate/n8-server/commit/90054a6417)] - **run**: fix `--port` / `--portfile` before the entry file (Nathan Rajlich)
