@@ -37,6 +37,10 @@ while [ "x$1" != "x" ]
       # single argument node options should be handled here
       NODE_ARGS="$NODE_ARGS "$1""
       ;;
+    --harmony-*)
+      # harmony flags are JS new feature flags
+      NODE_ARGS="$NODE_ARGS "$1""
+      ;;
     -*)
       # two argument node options should be caught here
       NODE_ARGS="$NODE_ARGS "$1" "$2""
