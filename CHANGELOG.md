@@ -1,3 +1,7 @@
+v2.2.0 2016-11-26
+
+* [[`41c067c948`](https://github.com/TooTallNate/n8-server/commit/41c067c948)] - only print out 5xx status code errors to stderr (Nathan Rajlich)
+
 v2.1.2 2016-11-25
 
 * [[`1ccf5bab9a`](https://github.com/TooTallNate/n8-server/commit/1ccf5bab9a)] - pass through all `--harmony` flags to node (Nathan Rajlich)
