@@ -1,8 +1,9 @@
 import args from 'args';
 import DEBUG from 'debug';
+import { sync as resolve } from 'resolve';
 import { writeFileSync as write, unlinkSync as unlink } from 'fs';
 import { createServer } from 'http';
-import { isAbsolute, resolve } from 'path';
+import { isAbsolute, join } from 'path';
 import { readable as isReadableStream } from 'is-stream';
 import { name as packageName, version as packageVersion } from './package.json';
 
@@ -50,7 +51,14 @@ if (!filename) {
 if ('error' === filename) {
   filename = './error.js';
 } else if (!isAbsolute(filename)) {
-  filename = resolve(filename);
+  const cwd = process.cwd()
+  try {
+    // try module name lookup
+    filename = resolve(filename, { basedir: cwd });
+  } catch (e) {
+    // otherwise it's a relative path filename
+    filename = join(cwd, filename)
+  }
 }
 
 const statusCodes = {
