@@ -4,7 +4,7 @@ import { writeFileSync as write, unlinkSync as unlink } from 'fs';
 import { createServer } from 'http';
 import { isAbsolute, resolve } from 'path';
 import { readable as isReadableStream } from 'is-stream';
-import { name as packageName } from './package.json';
+import { name as packageName, version as packageVersion } from './package.json';
 
 const debug = DEBUG('n8-server');
 
@@ -18,8 +18,6 @@ const argv = args.parse(process.argv, {
 
   // custom `--help` rendering
   usageFilter(output) {
-    const pkg = require('./package.json');
-
     return output + `
   Examples:
 
@@ -30,7 +28,7 @@ const argv = args.parse(process.argv, {
     $ n8-server -r dotenv/config server.js
     $ n8-server --expose-gc server.js
 
-  ${pkg.name} version v${pkg.version}
+  ${packageName} version v${packageVersion}
   ${process.title} version ${process.version} (${process.execPath || process.argv[0]})
 `;
 
