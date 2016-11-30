@@ -1,13 +1,13 @@
 import test from 'ava';
 import uid from 'uid-promise';
 import { join } from 'path';
-import { tmpDir } from 'os';
+import { tmpdir } from 'os';
 import fetch from 'node-fetch';
 import { readFile } from 'fs-promise';
 import { spawn } from 'child_process';
 
 async function server (filename) {
-  const portfile = join(tmpDir(), await uid(10));
+  const portfile = join(tmpdir(), await uid(10));
   const proc = spawn(__dirname + '/../run.sh', [ '--portfile', portfile, filename ], { stdio: 'ignore' });
   let port;
   while (!port) {
