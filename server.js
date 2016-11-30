@@ -35,7 +35,9 @@ const argv = args.parse(process.argv, {
   }
 });
 
-debug('argv: %o', argv);
+debug('parsed argv: %o', argv);
+process.parsedArgv = argv
+process.sub = sub
 
 let filename = args.sub[0];
 let port = argv.port || parseInt(process.env.PORT, 10) || 0;
