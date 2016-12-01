@@ -1,3 +1,9 @@
+v2.3.0 2016-11-26
+
+* [[`e791985c41`](https://github.com/TooTallNate/n8-server/commit/e791985c41)] - add `process.parsedArgv` and `process.sub` (Nathan Rajlich)
+* [[`27d4683491`](https://github.com/TooTallNate/n8-server/commit/27d4683491)] - allow server name lookup from command line (Nathan Rajlich)
+* [[`babfc94607`](https://github.com/TooTallNate/n8-server/commit/babfc94607)] - **test**: fix deprecation warning (Nathan Rajlich)
+
 v2.2.0 2016-11-26
 
 * [[`41c067c948`](https://github.com/TooTallNate/n8-server/commit/41c067c948)] - only print out 5xx status code errors to stderr (Nathan Rajlich)
